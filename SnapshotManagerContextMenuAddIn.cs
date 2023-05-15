@@ -65,31 +65,8 @@ namespace SnapshotManager
             *    e.g. AddActionItem<DeviceItem> will create a context menu item that will be displayed on a right-click on a DeviceItem,
             *    whereas AddActionItem<Project> will create a context menu item that will be displayed on a right-click on the project name.
             */
-            // TODO: Change the code here
-            // Example: 
-            addInRootSubmenu.Items.AddActionItem<IEngineeringObject>("Save Snapshot", OnDoSaveSnapshot, OnCanSaveSnapshot);
-            addInRootSubmenu.Items.AddActionItem<IEngineeringObject>("Restore Snapshot", OnDoRestoreSnapshot, OnCanRestoreSnapshot);
-        }
-
-        private MenuStatus CheckForPlcBlockType(String plcBlockType, MenuSelectionProvider<IEngineeringObject> menuSelectionProvider) {
-            IEnumerable<IEngineeringObject> selection = menuSelectionProvider.GetSelection<IEngineeringObject>();
-            Int16 counter = 0;
-            MenuStatus menuStatus = MenuStatus.Disabled;
-
-            foreach(IEngineeringObject curSelection in selection) {
-                if(curSelection.ToString() == plcBlockType) {
-                    menuStatus = MenuStatus.Enabled;
-                } else {
-                    menuStatus = MenuStatus.Disabled;
-                }
-                counter++;
-            } 
-            
-            if(counter > 1) {
-                menuStatus = MenuStatus.Disabled;
-            }
-            
-            return menuStatus;
+            addInRootSubmenu.Items.AddActionItem<GlobalDB>("Save Snapshot", OnDoSaveSnapshot, OnCanSaveSnapshot);
+            addInRootSubmenu.Items.AddActionItem<GlobalDB>("Restore Snapshot", OnDoRestoreSnapshot, OnCanRestoreSnapshot);
         }
 
         /// <summary>
@@ -98,17 +75,13 @@ namespace SnapshotManager
         /// </summary>
         /// <param name="menuSelectionProvider">
         /// Here, the same generic type as was used in addInRootSubmenu.Items.AddActionItem must be used
-        /// (here it has to be IEngineeringObject)
+        /// (here it has to be GlobalDB, because there are only snapshots from global datablock possible)
         /// </param>
-        private void OnDoSaveSnapshot(MenuSelectionProvider<IEngineeringObject> menuSelectionProvider)
+        private void OnDoSaveSnapshot(MenuSelectionProvider<GlobalDB> menuSelectionProvider)
         {
-            // TODO: Change the code here
-            // Program of AddIn
-            IEnumerable<IEngineeringObject> selection = menuSelectionProvider.GetSelection<IEngineeringObject>();
-            foreach(GlobalDB curSelection in selection) {
+            foreach(GlobalDB curSelection in menuSelectionProvider.GetSelection<GlobalDB>()) {
                 InterfaceSnapshot interfaceSnapshot =  curSelection.GetService<InterfaceSnapshot>();
-                interfaceSnapshot.Export(new FileInfo("C:\\temp\\MyInterfaceSnapshot.xml"), ExportOptions.WithReadOnly);
-                
+                interfaceSnapshot.Export(new FileInfo("C:\\temp\\MyInterfaceSnapshot.xml"), ExportOptions.WithReadOnly);                
             }
 
         }
@@ -119,9 +92,9 @@ namespace SnapshotManager
         /// </summary>
         /// <param name="menuSelectionProvider">
         /// Here, the same generic type as was used in addInRootSubmenu.Items.AddActionItem must be used
-        /// (here it has to be IEngineeringObject)
+        /// (here it has to be GlobalDB)
         /// </param>
-        private MenuStatus OnCanSaveSnapshot(MenuSelectionProvider<IEngineeringObject> menuSelectionProvider)
+        private MenuStatus OnCanSaveSnapshot(MenuSelectionProvider<GlobalDB> menuSelectionProvider)
         {
             // TODO: Change the code here
             // MenuStatus
@@ -129,7 +102,7 @@ namespace SnapshotManager
             //  Disabled = Visible but not executable
             //  Hidden   = Item will not be shown
             
-            return CheckForPlcBlockType("Siemens.Engineering.SW.Blocks.GlobalDB", menuSelectionProvider);
+            return MenuStatus.Enabled;
         }
 
         /// <summary>
@@ -138,14 +111,13 @@ namespace SnapshotManager
         /// </summary>
         /// <param name="menuSelectionProvider">
         /// Here, the same generic type as was used in addInRootSubmenu.Items.AddActionItem must be used
-        /// (here it has to be IEngineeringObject)
+        /// (here it has to be GlobalDB)
         /// </param>
-        private void OnDoRestoreSnapshot(MenuSelectionProvider<IEngineeringObject> menuSelectionProvider)
+        private void OnDoRestoreSnapshot(MenuSelectionProvider<GlobalDB> menuSelectionProvider)
         {
             // TODO: Change the code here
             // Program of AddIn
-            IEnumerable<IEngineeringObject> selection = menuSelectionProvider.GetSelection<IEngineeringObject>();
-            foreach(GlobalDB curSelection in selection) {
+            foreach(GlobalDB curSelection in menuSelectionProvider.GetSelection<GlobalDB>()) {
                 XmlDocument snapShotXML = new XmlDocument();
                 snapShotXML.Load("C:\\temp\\MyInterfaceSnapshot.xml");
                 XmlNode root = snapShotXML.DocumentElement;
@@ -178,16 +150,16 @@ namespace SnapshotManager
         /// </summary>
         /// <param name="menuSelectionProvider">
         /// Here, the same generic type as was used in addInRootSubmenu.Items.AddActionItem must be used
-        /// (here it has to be IEngineeringObject)
+        /// (here it has to be GlobalDB)
         /// </param>
-        private MenuStatus OnCanRestoreSnapshot(MenuSelectionProvider<IEngineeringObject> menuSelectionProvider)
+        private MenuStatus OnCanRestoreSnapshot(MenuSelectionProvider<GlobalDB> menuSelectionProvider)
         {
             // TODO: Change the code here
             // MenuStatus
             //  Enabled  = Visible
             //  Disabled = Visible but not executable
             //  Hidden   = Item will not be shown
-            return CheckForPlcBlockType("Siemens.Engineering.SW.Blocks.GlobalDB", menuSelectionProvider);
+            return MenuStatus.Enabled;
         }
     }
 }
