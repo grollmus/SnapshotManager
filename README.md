@@ -41,6 +41,7 @@ The following ideas for improving the whole add-in are pending:
 - historical export of snapshot data
 - isolate logic/view from addin interface to develop independently from TIA Portal
 - finding a better way to access the snapshot.xml
+- using message api to display messages in TIA Portal about events of SnapshotManager
 
 ## Installation
 
