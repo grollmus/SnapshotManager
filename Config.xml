@@ -3,11 +3,11 @@
   <!--Enter values for Author, Description, AddInVersion, Name, ...-->
   <Author>Grollmus</Author>
   <Description>Datablock Snapshot Manager</Description>
-  <AddInVersion>0.01</AddInVersion>
+  <AddInVersion>0.1.0</AddInVersion>
   <Product>
     <Name>Grollmus.SnapshotManager</Name>
     <Id>12345678</Id>
-    <Version>0.1</Version>
+    <Version>0.1.0</Version>
   </Product>
   <FeatureAssembly>
     <AssemblyInfo>
