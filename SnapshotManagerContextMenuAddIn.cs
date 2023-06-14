@@ -12,6 +12,7 @@ using Siemens.Engineering.HW.Features;
 using System.Diagnostics;
 using System.Xml.Linq;
 using System.Xml;
+using SnapshotManager;
 
 namespace SnapshotManager
 {
@@ -79,16 +80,8 @@ namespace SnapshotManager
         /// </param>
         private void OnDoSaveSnapshot(MenuSelectionProvider<GlobalDB> menuSelectionProvider)
         {
-            foreach(GlobalDB curSelection in menuSelectionProvider.GetSelection<GlobalDB>()) {
-                InterfaceSnapshot interfaceSnapshot =  curSelection.GetService<InterfaceSnapshot>();
-                string path = @"C:\temp\MyInterfaceSnapshot.xml";
-                if(File.Exists(path))
-                {
-                    File.Delete(path);
-                }
-                interfaceSnapshot.Export(new FileInfo("C:\\temp\\MyInterfaceSnapshot.xml"), ExportOptions.WithReadOnly);                
-            }
-
+            SnapshotManager snapshotManager = new SnapshotManager();
+            snapshotManager.saveSnapshot(menuSelectionProvider);
         }
 
         /// <summary>
