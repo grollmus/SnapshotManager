@@ -37,8 +37,10 @@ The following ideas for improving the whole add-in are pending:
 
 - database backend to store saved snapshots
 - logic to check if saved snapshot is compatible with actual datablock structure
-- user interface for checking on saved snapshots
+- user interface for saving, restoring and managing snapshots
 - historical export of snapshot data
+- isolate logic/view from addin interface to develop independently from TIA Portal
+- finding a better way to access the snapshot.xml
 
 ## Installation
 
