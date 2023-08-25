@@ -56,3 +56,5 @@ By clicking on `Save Snapshot` the *existing* and acutal snapshot will be saved 
 
 ### Restore Snapshot
 By clicking on `Restore Snapshot` the file `C:\temp\MyInterfaceSnapshot.xml` will be used to read out the values for modifying the start values of the selected datablock. To set the values on the PLC you have to go online and apply the start values as acutal values in the standard TIA way.
+
+Test
