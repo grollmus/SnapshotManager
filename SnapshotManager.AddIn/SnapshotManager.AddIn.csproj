@@ -63,8 +63,26 @@
 		</Content>
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\SnapshotManager.Core.Model\SnapshotManager.Core.Model.csproj" />
+	  <ProjectReference Include="..\Grollmus.TiaPortal.Model\Grollmus.TiaPortal.Model.csproj" />
 	  <ProjectReference Include="..\SnapshotManager.Core\SnapshotManager.Core.csproj" />
 	  <ProjectReference Include="..\SnapshotManager.UI\SnapshotManager.UI.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="Siemens.Engineering.AddIn">
+			<HintPath>..\libs\Siemens.Engineering.AddIn.dll</HintPath>
+		</Reference>
+		<Reference Include="Siemens.Engineering.AddIn.Permissions">
+			<HintPath>..\libs\Siemens.Engineering.AddIn.Permissions.dll</HintPath>
+		</Reference>
+		<Reference Include="Siemens.Engineering">
+			<HintPath>..\libs\Siemens.Engineering.dll</HintPath>
+		</Reference>
+		<Reference Include="Siemens.Engineering.AddIn.Utilities">
+		  <HintPath>..\libs\Siemens.Engineering.AddIn.Utilities.dll</HintPath>
+		</Reference>
+		<Reference Include="Siemens.Engineering.Hmi">
+		  <HintPath>..\libs\Siemens.Engineering.Hmi.dll</HintPath>
+		</Reference>
 	</ItemGroup>
 </Project>

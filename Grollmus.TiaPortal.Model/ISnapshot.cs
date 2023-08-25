@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace SnapshotManager.Core.TiaPortal;
+namespace Grollmus.TiaPortal.Model;
 
 public interface ISnapshot
 {

@@ -1,21 +1,24 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using SnapshotManager.Core.TiaPortal;
+﻿using System.IO;
+using System.Linq;
+using Grollmus.TiaPortal.Model;
 
 namespace SnapshotManager.Core.Snapshot;
 
 public class SnapshotExporter : ISnapshotExporter
 {
     private readonly FileInfo _targetFile;
+    private readonly ITiaPortalModel _tiaPortalModel;
 
-    public SnapshotExporter(string targetRootPath = @"c:\temp\tia-snapshot")
+    public SnapshotExporter(ITiaPortalModel tiaPortalModel, string targetRootPath = @"c:\temp\tia-snapshot")
     {
+        _tiaPortalModel = tiaPortalModel;
         _targetFile = new FileInfo(Path.Combine(targetRootPath, "MyInterfaceSnapshot.xml"));
     }
 
-    public void Export(IEnumerable<ISnapshot> snapshots)
+    public void ExportSnapshots()
     {
-        foreach (var snapshot in snapshots) 
+        var snapshots = _tiaPortalModel.GetGlobalDBs().Select(db => db.GetSnapshot());
+        foreach (var snapshot in snapshots)
             snapshot.Export(_targetFile);
     }
 }

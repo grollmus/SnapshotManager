@@ -12,7 +12,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\SnapshotManager.Core\SnapshotManager.Core.csproj" />
+	  <Reference Include="Siemens.Engineering">
+	    <HintPath>..\libs\Siemens.Engineering.dll</HintPath>
+	  </Reference>
 	</ItemGroup>
 
 </Project>

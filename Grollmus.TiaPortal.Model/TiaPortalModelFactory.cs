@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Grollmus.TiaPortal.Model.Specify;
-using SnapshotManager.Core.TiaPortal;
+using Siemens.Engineering.SW.Blocks;
 
 namespace Grollmus.TiaPortal.Model;
 

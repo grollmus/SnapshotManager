@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Siemens.Engineering;
 using Siemens.Engineering.AddIn.Menu;
 using Siemens.Engineering.SW.Blocks;
@@ -75,12 +76,14 @@ namespace SnapshotManager
         private void OnDoSaveSnapshot(MenuSelectionProvider<GlobalDB> menuSelectionProvider)
         {
             var factory = new TiaPortalModelFactory();
-            var model = factory.GetModel(menuSelectionProvider.GetSelection<GlobalDB>());
 
-            var exporter = new SnapshotExporter();
-            var snapshotManager = new Core.Snapshot.SnapshotManager(model);
+            var modelWrapper = factory.GetModel(menuSelectionProvider.GetSelection<GlobalDB>());
 
-            snapshotManager.SaveSnapshot(exporter);
+            var snapshotManager = new Core.SnapshotManager(modelWrapper);
+
+            var exporter = snapshotManager.GetExporter();
+
+            exporter.ExportSnapshots();
         }
 
         /// <summary>

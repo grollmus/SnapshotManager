@@ -17,6 +17,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnapshotManager.UI", "Snaps
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grollmus.TiaPortal.Model", "Grollmus.TiaPortal.Model\Grollmus.TiaPortal.Model.csproj", "{B64325DE-E404-4057-B534-C8631F4D3B8D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{A377B046-A60B-466E-97B7-FC7AAD70E9E8}"
+	ProjectSection(SolutionItems) = preProject
+		libs\Siemens.Engineering.AddIn.dll = libs\Siemens.Engineering.AddIn.dll
+		libs\Siemens.Engineering.AddIn.Permissions.dll = libs\Siemens.Engineering.AddIn.Permissions.dll
+		libs\Siemens.Engineering.AddIn.Utilities.dll = libs\Siemens.Engineering.AddIn.Utilities.dll
+		libs\Siemens.Engineering.dll = libs\Siemens.Engineering.dll
+		libs\Siemens.Engineering.Hmi.dll = libs\Siemens.Engineering.Hmi.dll
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

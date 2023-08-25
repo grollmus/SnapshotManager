@@ -1,12 +1,12 @@
 ﻿using System.IO;
-using System.Runtime.Serialization;
-using SnapshotManager.Core.TiaPortal;
+using Siemens.Engineering;
+using Siemens.Engineering.SW.Blocks;
 
 namespace Grollmus.TiaPortal.Model.Specify;
 
 internal class Snapshot : ISnapshot
 {
-    private InterfaceSnapshot _interfaceSnapshot;
+    private readonly InterfaceSnapshot _interfaceSnapshot;
 
     public Snapshot(InterfaceSnapshot interfaceSnapshot)
     {

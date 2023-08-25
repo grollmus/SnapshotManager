@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace SnapshotManager.Core.TiaPortal;
+namespace Grollmus.TiaPortal.Model;
 
 public interface ITiaPortalModel
 {

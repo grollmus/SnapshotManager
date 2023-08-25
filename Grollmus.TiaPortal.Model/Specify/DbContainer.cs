@@ -1,4 +1,4 @@
-﻿using SnapshotManager.Core.TiaPortal;
+﻿using Siemens.Engineering.SW.Blocks;
 
 namespace Grollmus.TiaPortal.Model.Specify;
 
@@ -10,6 +10,8 @@ internal class DbContainer : IGlobalDB
     {
         _db = globalDb;
     }
+
+    public string Name => _db.Name;
 
     public ISnapshot GetSnapshot()
     {

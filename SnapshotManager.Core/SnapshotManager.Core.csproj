@@ -11,4 +11,8 @@
 		<IsPackable>true</IsPackable>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Grollmus.TiaPortal.Model\Grollmus.TiaPortal.Model.csproj" />
+	</ItemGroup>
+
 </Project>
