@@ -7,7 +7,7 @@ public class DelegateCommand : DelegateCommand<object>
 {
     /// <inheritdoc />
     public DelegateCommand(Action executeAction, Func<bool> canExecuteFunc = null)
-        : base(p => executeAction(), p => canExecuteFunc?.Invoke() ?? true)
+        : base(_ => executeAction(), _ => canExecuteFunc?.Invoke() ?? true)
     {
     }
 }
@@ -20,7 +20,12 @@ public class DelegateCommand<TParameter> : ICommand
     public DelegateCommand(Action<TParameter> executeAction, Func<TParameter, bool> canExecuteFunc = null)
     {
         _executeAction = executeAction;
-        _canExecuteFunc = canExecuteFunc ?? (p => true);
+        _canExecuteFunc = canExecuteFunc ?? (_ => true);
+    }
+
+    public void RaiseCanExecuteChanged()
+    {
+        CanExecuteChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public bool CanExecute(object parameter)
@@ -31,11 +36,6 @@ public class DelegateCommand<TParameter> : ICommand
     public void Execute(object parameter)
     {
         _executeAction((TParameter)parameter);
-    }
-
-    public void RaiseCanExecuteChanged()
-    {
-        CanExecuteChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public event EventHandler CanExecuteChanged;

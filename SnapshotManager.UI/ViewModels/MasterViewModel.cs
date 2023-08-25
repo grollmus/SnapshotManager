@@ -1,41 +1,40 @@
 ﻿using SnapshotManager.UI.Mvvm;
 
-namespace SnapshotManager.UI.ViewModels
+namespace SnapshotManager.UI.ViewModels;
+
+public class MasterViewModel : ViewModelBase
 {
-    public class MasterViewModel : ViewModelBase
+    private string _message;
+
+    public MasterViewModel()
     {
-        private string _message;
+        CreateCommands();
+    }
 
-        public MasterViewModel()
+    public string Message
+    {
+        get => _message;
+        set
         {
-            CreateCommands();
+            _message = value;
+            OnPropertyChanged();
         }
+    }
 
-        public string Message
-        {
-            get => _message;
-            set
-            {
-                _message = value;
-                OnPropertyChanged();
-            }
-        }
+    public DelegateCommand OpenFileCommand { get; set; }
 
-        public DelegateCommand OpenFileCommand { get; set; }
+    private void CreateCommands()
+    {
+        OpenFileCommand = new DelegateCommand(OnOpenFileCommandExecute, OnOpenFileCommandCanExecute);
+    }
 
-        private void CreateCommands()
-        {
-            OpenFileCommand = new DelegateCommand(OnOpenFileCommandExecute, OnOpenFileCommandCanExecute);
-        }
+    private bool OnOpenFileCommandCanExecute()
+    {
+        return true;
+    }
 
-        private bool OnOpenFileCommandCanExecute()
-        {
-            return true;
-        }
-
-        private void OnOpenFileCommandExecute()
-        {
-            Message = "Hallo ich bin da";
-        }
+    private void OnOpenFileCommandExecute()
+    {
+        Message = "Hallo ich bin da";
     }
 }
