@@ -2,11 +2,11 @@
 
 namespace SnapshotManager.UI.ViewModels
 {
-    public class MainViewModel : ViewModelBase
+    public class MasterViewModel : ViewModelBase
     {
         private string _message;
 
-        public MainViewModel()
+        public MasterViewModel()
         {
             CreateCommands();
         }
@@ -30,7 +30,7 @@ namespace SnapshotManager.UI.ViewModels
 
         private bool OnOpenFileCommandCanExecute()
         {
-            return false;
+            return true;
         }
 
         private void OnOpenFileCommandExecute()

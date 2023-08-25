@@ -3,11 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:SnapshotManager.UI"
+             xmlns:viewModels="clr-namespace:SnapshotManager.UI.ViewModels"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             d:DataContext="{d:DesignInstance Type={x:Type viewModels:MasterViewModel}, IsDesignTimeCreatable=False}">
     <Grid>
-        <Button Command="{Binding OpenFileCommand}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Content="Drück mich!" 
+                Command="{Binding OpenFileCommand}" 
+                HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
         <TextBlock Text="{Binding Message}" VerticalAlignment="Top"/>
+
     </Grid>
 </UserControl>
