@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "SnapshotManager.AddIn": {
+      "commandName": "Project"
+    },
+    "Debug TIA Portal Add-In": {
+      "commandName": "Executable",
+      "executablePath": "$(TiaPortalLocation)\\PublicAPI\\V18.AddIn\\Siemens.Engineering.AddIn.DebugStarter.exe",
+      "commandLineArgs": "$(ProjectDir)$(OutDir)SnapshotManager.Addin.addin"
+    }
+  }
+}

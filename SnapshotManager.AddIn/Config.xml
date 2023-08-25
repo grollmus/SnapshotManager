@@ -11,8 +11,8 @@
   </Product>
   <FeatureAssembly>
     <AssemblyInfo>
-      <Assembly>SnapshotManager.dll</Assembly>
-      <Pdb>SnapshotManager.pdb</Pdb>
+      <Assembly>SnapshotManager.AddIn.dll</Assembly>
+      <Pdb>SnapshotManager.AddIn.pdb</Pdb>
     </AssemblyInfo>
   </FeatureAssembly>
   <RequiredPermissions>
