@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk" Project="Sdk.props">
 
+	<Import Project="$(SolutionDir)CommonBuildSettings.targets" />
+
 	<PropertyGroup>
 		<RootNamespace>SnapshotManager.App</RootNamespace>
 		<AssemblyName>SnapshotManager.App</AssemblyName>
-		<TargetFramework>net48</TargetFramework>
 		<UseWPF>true</UseWPF>
-		<LangVersion>latest</LangVersion>
 		<OutputType>WinExe</OutputType>
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\SnapshotManager.UI\SnapshotManager.UI.csproj" />
+		<ProjectReference Include="..\SnapshotManager.UI\SnapshotManager.UI.csproj" />
 	</ItemGroup>
 
 </Project>

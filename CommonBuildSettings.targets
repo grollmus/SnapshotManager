@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+		<TargetFramework>net48</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<NoWarn>$(NoWarn);SYSLIB0011;SYSLIB0014</NoWarn>
+		<Configurations>Debug;Release;Debug_WithLocalEngineeringDlls</Configurations>
+		<OutputPath>bin\$(Configuration)</OutputPath>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
+		<ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+	</PropertyGroup>
+
+</Project>

@@ -1,4 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+	<Import Project="$(SolutionDir)CommonBuildSettings.targets" />
+
 	<PropertyGroup>
 		<RootNamespace>SnapshotManager.AddIn</RootNamespace>
 		<AssemblyName>SnapshotManager.AddIn</AssemblyName>
@@ -63,12 +66,12 @@
 		</Content>
 	</ItemGroup>
 	<ItemGroup>
-	  <ProjectReference Include="..\Grollmus.TiaPortal.Model\Grollmus.TiaPortal.Model.csproj" />
-	  <ProjectReference Include="..\SnapshotManager.Core\SnapshotManager.Core.csproj" />
-	  <ProjectReference Include="..\SnapshotManager.UI\SnapshotManager.UI.csproj" />
+		<ProjectReference Include="..\Grollmus.TiaPortal.Model\Grollmus.TiaPortal.Model.csproj" />
+		<ProjectReference Include="..\SnapshotManager.Core\SnapshotManager.Core.csproj" />
+		<ProjectReference Include="..\SnapshotManager.UI\SnapshotManager.UI.csproj" />
 	</ItemGroup>
 
-	<ItemGroup>
+	<ItemGroup Condition="'$(Configuration)' == 'Debug_WithLocalEngineeringDlls'">
 		<Reference Include="Siemens.Engineering.AddIn">
 			<HintPath>..\libs\Siemens.Engineering.AddIn.dll</HintPath>
 		</Reference>
@@ -79,10 +82,10 @@
 			<HintPath>..\libs\Siemens.Engineering.dll</HintPath>
 		</Reference>
 		<Reference Include="Siemens.Engineering.AddIn.Utilities">
-		  <HintPath>..\libs\Siemens.Engineering.AddIn.Utilities.dll</HintPath>
+			<HintPath>..\libs\Siemens.Engineering.AddIn.Utilities.dll</HintPath>
 		</Reference>
 		<Reference Include="Siemens.Engineering.Hmi">
-		  <HintPath>..\libs\Siemens.Engineering.Hmi.dll</HintPath>
+			<HintPath>..\libs\Siemens.Engineering.Hmi.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 </Project>
