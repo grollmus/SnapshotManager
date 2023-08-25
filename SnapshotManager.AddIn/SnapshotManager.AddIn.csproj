@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <RootNamespace>SnapshotManager</RootNamespace>
-    <AssemblyName>SnapshotManager</AssemblyName>
+    <RootNamespace>SnapshotManager.AddIn</RootNamespace>
+    <AssemblyName>SnapshotManager.AddIn</AssemblyName>
     <TargetFramework>net48</TargetFramework>
-    <Product>SnapshotManager</Product>
+    <Product>SnapshotManager.AddIn</Product>
     <Copyright>Copyright © 2023</Copyright>
     <Company></Company>
     <Description></Description>
