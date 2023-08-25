@@ -4,8 +4,8 @@
     xmlns:views="clr-namespace:SnapshotManager.UI.Views"
     xmlns:viewModels="clr-namespace:SnapshotManager.UI.ViewModels">
 
-    <DataTemplate DataType="{x:Type viewModels:MasterViewModel}">
-        <views:MainView />
+    <DataTemplate DataType="{x:Type viewModels:SettingsViewModel}">
+        <views:SettingsView />
     </DataTemplate>
 
 </ResourceDictionary>

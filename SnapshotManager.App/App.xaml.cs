@@ -11,7 +11,7 @@ public partial class App : Application
     {
         base.OnStartup(e);
         
-        var content = new MasterViewModel();
+        var content = new SettingsViewModel();
 
         var window = new Shell { DataContext = content };
         window.Closing += OnWindowClosing;

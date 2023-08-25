@@ -2,6 +2,10 @@
 using Siemens.Engineering;
 using Siemens.Engineering.AddIn.Menu;
 using Siemens.Engineering.SW.Blocks;
+using SnapshotManager.AddIn.TiaPortal;
+using SnapshotManager.Core.Snapshot;
+using SnapshotManager.UI;
+using System.Windows;
 
 namespace SnapshotManager
 {
@@ -57,6 +61,7 @@ namespace SnapshotManager
             */
             addInRootSubmenu.Items.AddActionItem<GlobalDB>("Save Snapshot", OnDoSaveSnapshot, OnCanSaveSnapshot);
             addInRootSubmenu.Items.AddActionItem<GlobalDB>("Restore Snapshot", OnDoRestoreSnapshot, OnCanRestoreSnapshot);
+            addInRootSubmenu.Items.AddActionItem<GlobalDB>("Settings", OnDoShowSettings, OnCanShowSettings);
         }
 
         /// <summary>
@@ -69,8 +74,13 @@ namespace SnapshotManager
         /// </param>
         private void OnDoSaveSnapshot(MenuSelectionProvider<GlobalDB> menuSelectionProvider)
         {
-            SnapshotManager snapshotManager = new SnapshotManager();
-            snapshotManager.saveSnapshot(menuSelectionProvider);
+            var factory = new TiaPortalModelFactory();
+            var model = factory.GetModel(menuSelectionProvider.GetSelection<GlobalDB>());
+
+            var exporter = new SnapshotExporter();
+            var snapshotManager = new Core.Snapshot.SnapshotManager(model);
+
+            snapshotManager.SaveSnapshot(exporter);
         }
 
         /// <summary>
@@ -88,7 +98,7 @@ namespace SnapshotManager
             //  Enabled  = Visible
             //  Disabled = Visible but not executable
             //  Hidden   = Item will not be shown
-            
+
             return MenuStatus.Enabled;
         }
 
@@ -102,7 +112,7 @@ namespace SnapshotManager
         /// </param>
         private void OnDoRestoreSnapshot(MenuSelectionProvider<GlobalDB> menuSelectionProvider)
         {
-            SnapshotManager snapshotManager = new SnapshotManager();
+            SnapshotManagerOld snapshotManager = new SnapshotManagerOld();
             snapshotManager.restoreSnapshot(menuSelectionProvider);
         }
 
@@ -115,6 +125,43 @@ namespace SnapshotManager
         /// (here it has to be GlobalDB)
         /// </param>
         private MenuStatus OnCanRestoreSnapshot(MenuSelectionProvider<GlobalDB> menuSelectionProvider)
+        {
+            // TODO: Change the code here
+            // MenuStatus
+            //  Enabled  = Visible
+            //  Disabled = Visible but not executable
+            //  Hidden   = Item will not be shown
+            return MenuStatus.Enabled;
+        }
+
+        /// <summary>
+        /// The method contains the program code of the Add-In.
+        /// Called when the context menu item 'Settings' (added in the body of the method BuildContextMenuItems) is chosen.
+        /// </summary>
+        /// <param name="menuSelectionProvider">
+        /// Here, the same generic type as was used in addInRootSubmenu.Items.AddActionItem must be used
+        /// (here it has to be GlobalDB)
+        /// </param>
+        private void OnDoShowSettings(MenuSelectionProvider<GlobalDB> menuSelectionProvider)
+        {
+            var factory = new UiFactory();
+            var content = factory.GetSnapshotManagerWindow(Core.SnapshotManagerTypes.Settings);
+
+            var window = new Window { Content = content };
+
+            window.ShowDialog();
+
+        }
+
+        /// <summary>
+        /// Called when mouse is over the context menu item 'Restore Snapshot'.
+        /// The returned value will be used to enable or disable it.
+        /// </summary>
+        /// <param name="menuSelectionProvider">
+        /// Here, the same generic type as was used in addInRootSubmenu.Items.AddActionItem must be used
+        /// (here it has to be GlobalDB)
+        /// </param>
+        private MenuStatus OnCanShowSettings(MenuSelectionProvider<GlobalDB> menuSelectionProvider)
         {
             // TODO: Change the code here
             // MenuStatus

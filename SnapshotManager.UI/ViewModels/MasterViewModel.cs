@@ -2,11 +2,11 @@
 
 namespace SnapshotManager.UI.ViewModels
 {
-    public class MasterViewModel : ViewModelBase
+    public class SettingsViewModel : ViewModelBase
     {
         private string _message;
 
-        public MasterViewModel()
+        public SettingsViewModel()
         {
             CreateCommands();
         }
