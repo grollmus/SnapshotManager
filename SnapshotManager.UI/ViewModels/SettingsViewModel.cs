@@ -1,15 +1,15 @@
 ﻿using SnapshotManager.UI.Mvvm;
 
-namespace SnapshotManager.UI.ViewModels
-{
-    public class SettingsViewModel : ViewModelBase
-    {
-        private string _message;
+namespace SnapshotManager.UI.ViewModels;
 
-        public SettingsViewModel()
-        {
-            CreateCommands();
-        }
+public class SettingsViewModel : ViewModelBase
+{
+    private string _message;
+
+    public SettingsViewModel()
+    {
+        CreateCommands();
+    }
 
     public string Message
     {
