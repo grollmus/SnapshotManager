@@ -63,6 +63,7 @@
 		</Content>
 	</ItemGroup>
 	<ItemGroup>
+	  <ProjectReference Include="..\SnapshotManager.Core\SnapshotManager.Core.csproj" />
 	  <ProjectReference Include="..\SnapshotManager.UI\SnapshotManager.UI.csproj" />
 	</ItemGroup>
 </Project>

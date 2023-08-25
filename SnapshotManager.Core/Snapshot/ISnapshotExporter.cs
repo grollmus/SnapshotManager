@@ -1,10 +1,9 @@
-﻿using SnapshotManager.Core.TiaPortal;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using SnapshotManager.Core.TiaPortal;
 
-namespace SnapshotManager.Core.Snapshot
+namespace SnapshotManager.Core.Snapshot;
+
+public interface ISnapshotExporter
 {
-    public interface ISnapshotExporter
-    {
-        void Export(IEnumerable<ISnapshot> snapshots);
-    }    
+    void Export(IEnumerable<ISnapshot> snapshots);
 }

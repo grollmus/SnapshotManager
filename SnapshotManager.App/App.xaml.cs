@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows;
-using SnapshotManager.UI.ViewModels;
+using SnapshotManager.UI;
 
 namespace SnapshotManager.App;
 
@@ -10,10 +10,11 @@ public partial class App : Application
     protected override void OnStartup(StartupEventArgs e)
     {
         base.OnStartup(e);
-        
-        var content = new SettingsViewModel();
 
-        var window = new Shell { DataContext = content };
+        var uiFactory = new SnapshotManagerUiFactory();
+        var settingsUi = uiFactory.GetSettingsUi();
+
+        var window = new Shell { DataContext = settingsUi };
         window.Closing += OnWindowClosing;
         window.Show();
     }

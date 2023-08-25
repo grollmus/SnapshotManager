@@ -144,13 +144,12 @@ namespace SnapshotManager
         /// </param>
         private void OnDoShowSettings(MenuSelectionProvider<GlobalDB> menuSelectionProvider)
         {
-            var factory = new UiFactory();
-            var content = factory.GetSnapshotManagerWindow(Core.SnapshotManagerTypes.Settings);
+            var factory = new SnapshotManagerUiFactory();
+            var content = factory.GetSettingsUi();
 
             var window = new Window { Content = content };
 
             window.ShowDialog();
-
         }
 
         /// <summary>

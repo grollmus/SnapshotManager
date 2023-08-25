@@ -1,7 +1,6 @@
-﻿namespace SnapshotManager.Core.TiaPortal
+﻿namespace SnapshotManager.Core.TiaPortal;
+
+public interface IGlobalDB
 {
-    public interface IGlobalDB
-    {
-        ISnapshot GetSnapshot();
-    }
+    ISnapshot GetSnapshot();
 }

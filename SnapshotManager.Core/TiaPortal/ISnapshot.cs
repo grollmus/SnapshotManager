@@ -1,10 +1,8 @@
-﻿using SnapshotManager.Core.Snapshot;
-using System.IO;
+﻿using System.IO;
 
-namespace SnapshotManager.Core.TiaPortal
+namespace SnapshotManager.Core.TiaPortal;
+
+public interface ISnapshot
 {
-    public interface ISnapshot
-    {
-        void Export(FileInfo targetFile);
-    }
+    void Export(FileInfo targetFile);
 }

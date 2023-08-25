@@ -2,7 +2,7 @@
 
 namespace SnapshotManager.UI.ViewModels;
 
-public class SettingsViewModel : ViewModelBase
+internal class SettingsViewModel : ViewModelBase
 {
     private string _message;
 
