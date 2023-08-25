@@ -2,5 +2,5 @@
 
 public interface ISnapshotExporter
 {
-    void ExportSnapshots();
+    int ExportSnapshots();
 }

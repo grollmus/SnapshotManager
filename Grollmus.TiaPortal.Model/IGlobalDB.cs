@@ -1,6 +1,6 @@
 ﻿namespace Grollmus.TiaPortal.Model;
 
-public interface IGlobalDB
+public interface IGlobalDb
 {
     string Name { get; }
 

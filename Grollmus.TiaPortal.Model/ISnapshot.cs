@@ -4,5 +4,5 @@ namespace Grollmus.TiaPortal.Model;
 
 public interface ISnapshot
 {
-    void Export(FileInfo targetFile);
+    bool Export(FileInfo targetFile);
 }

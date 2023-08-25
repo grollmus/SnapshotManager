@@ -13,8 +13,5 @@ internal class TiaPortalModel : ITiaPortalModel
         _globalDBs = globalDBs;
     }
 
-    public IEnumerable<IGlobalDB> GetGlobalDBs()
-    {
-        return _globalDBs.Select(db => new DbContainer(db));
-    }
+    public IEnumerable<IGlobalDb> GetGlobalDBs() => _globalDBs.Select(db => new DbContainer(db));
 }

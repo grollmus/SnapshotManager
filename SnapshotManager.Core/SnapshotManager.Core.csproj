@@ -15,4 +15,10 @@
 		<ProjectReference Include="..\Grollmus.TiaPortal.Model\Grollmus.TiaPortal.Model.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+			<_Parameter1>SnapshotManager.Core.Tests</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
+
 </Project>

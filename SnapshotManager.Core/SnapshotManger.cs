@@ -12,8 +12,5 @@ public class SnapshotManager
         _model = model;
     }
 
-    public ISnapshotExporter GetExporter()
-    {
-        return new SnapshotExporter(_model);
-    }
+    public ISnapshotExporter GetExporter() => new SnapshotToFileExporter(_model);
 }

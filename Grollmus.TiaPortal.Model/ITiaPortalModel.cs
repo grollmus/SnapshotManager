@@ -4,5 +4,5 @@ namespace Grollmus.TiaPortal.Model;
 
 public interface ITiaPortalModel
 {
-    IEnumerable<IGlobalDB> GetGlobalDBs();
+    IEnumerable<IGlobalDb> GetGlobalDBs();
 }

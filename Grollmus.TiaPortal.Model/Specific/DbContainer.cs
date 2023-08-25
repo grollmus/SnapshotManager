@@ -2,23 +2,20 @@
 
 namespace Grollmus.TiaPortal.Model.Specific;
 
-internal class DbContainer : IGlobalDB
+internal class DbContainer : IGlobalDb
 {
-    private readonly GlobalDB _db;
+    private readonly GlobalDB _globalDb;
 
     public DbContainer(GlobalDB globalDb)
     {
-        _db = globalDb;
+        _globalDb = globalDb;
     }
 
-    public string Name => _db.Name;
+    public string Name => _globalDb.Name;
 
     public ISnapshot GetSnapshot()
     {
-        var interfaceSnapshot = _db.GetService<InterfaceSnapshot>();
-        if (interfaceSnapshot == null)
-            return null;
-
-        return new Snapshot(interfaceSnapshot);
+        var interfaceSnapshot = _globalDb.GetService<InterfaceSnapshot>();
+        return interfaceSnapshot == null ? null : new Snapshot(interfaceSnapshot);
     }
 }

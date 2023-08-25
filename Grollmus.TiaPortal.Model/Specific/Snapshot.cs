@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Siemens.Engineering;
 using Siemens.Engineering.SW.Blocks;
 
@@ -13,8 +14,16 @@ internal class Snapshot : ISnapshot
         _interfaceSnapshot = interfaceSnapshot;
     }
 
-    public void Export(FileInfo targetFile)
+    public bool Export(FileInfo targetFile)
     {
-        _interfaceSnapshot.Export(targetFile, ExportOptions.WithReadOnly);
+        try
+        {
+            _interfaceSnapshot.Export(targetFile, ExportOptions.WithReadOnly);
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
     }
 }
