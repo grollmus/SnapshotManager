@@ -2,7 +2,7 @@
 using System.Linq;
 using Siemens.Engineering.SW.Blocks;
 
-namespace Grollmus.TiaPortal.Model.Specify;
+namespace Grollmus.TiaPortal.Model.Specific;
 
 internal class TiaPortalModel : ITiaPortalModel
 {

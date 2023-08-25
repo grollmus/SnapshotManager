@@ -2,7 +2,7 @@
 using System.Linq;
 using Grollmus.TiaPortal.Model;
 
-namespace SnapshotManager.Core.Snapshot;
+namespace SnapshotManager.Core.Specific;
 
 public class SnapshotExporter : ISnapshotExporter
 {

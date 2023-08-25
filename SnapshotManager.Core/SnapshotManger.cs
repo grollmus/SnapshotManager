@@ -1,5 +1,5 @@
 using Grollmus.TiaPortal.Model;
-using SnapshotManager.Core.Snapshot;
+using SnapshotManager.Core.Specific;
 
 namespace SnapshotManager.Core;
 

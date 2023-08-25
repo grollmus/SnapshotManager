@@ -2,7 +2,7 @@
 using Siemens.Engineering;
 using Siemens.Engineering.SW.Blocks;
 
-namespace Grollmus.TiaPortal.Model.Specify;
+namespace Grollmus.TiaPortal.Model.Specific;
 
 internal class Snapshot : ISnapshot
 {

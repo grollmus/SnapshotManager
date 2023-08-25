@@ -1,9 +1,6 @@
-﻿
-using System;
-using Siemens.Engineering;
+﻿using Siemens.Engineering;
 using Siemens.Engineering.AddIn.Menu;
 using Siemens.Engineering.SW.Blocks;
-using SnapshotManager.Core.Snapshot;
 using SnapshotManager.UI;
 using System.Windows;
 using Grollmus.TiaPortal.Model;
@@ -148,6 +145,7 @@ namespace SnapshotManager
         private void OnDoShowSettings(MenuSelectionProvider<GlobalDB> menuSelectionProvider)
         {
             var factory = new SnapshotManagerUiFactory();
+
             var content = factory.GetSettingsUi();
 
             var window = new Window { Content = content };

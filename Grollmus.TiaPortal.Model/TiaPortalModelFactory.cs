@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Grollmus.TiaPortal.Model.Specify;
+using Grollmus.TiaPortal.Model.Specific;
 using Siemens.Engineering.SW.Blocks;
 
 namespace Grollmus.TiaPortal.Model;
