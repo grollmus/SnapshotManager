@@ -24,6 +24,10 @@
 			<Assembly>SnapshotManager.Core.dll</Assembly>
 			<Pdb>SnapshotManager.Core.pdb</Pdb>
 		</AssemblyInfo>
+		<AssemblyInfo>
+			<Assembly>Grollmus.TiaPortal.Model.dll</Assembly>
+			<Pdb>Grollmus.TiaPortal.Model.pdb</Pdb>
+		</AssemblyInfo>
 	</AdditionalAssemblies>
 	<RequiredPermissions>
 		<TIAPermissions>

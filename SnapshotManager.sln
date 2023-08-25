@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnapshotManager.Core", "Sna
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnapshotManager.Core.Tests", "Tests\SnapshotManager.Core.Tests\SnapshotManager.Core.Tests.csproj", "{6FCEF75A-53A0-46E9-89D7-543C111B74F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapshotManager.App", "SnapshotManager.App\SnapshotManager.App.csproj", "{6CC358AF-624A-4D16-9F88-62CE7E561FF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnapshotManager.App", "SnapshotManager.App\SnapshotManager.App.csproj", "{6CC358AF-624A-4D16-9F88-62CE7E561FF5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnapshotManager.AddIn", "SnapshotManager.AddIn\SnapshotManager.AddIn.csproj", "{B3CA7F8A-941F-4F09-90D5-8EA1A306C2F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnapshotManager.UI", "SnapshotManager.UI\SnapshotManager.UI.csproj", "{0D6DC0CE-AC6E-4449-B54D-03C041D148B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnapshotManager.UI", "SnapshotManager.UI\SnapshotManager.UI.csproj", "{0D6DC0CE-AC6E-4449-B54D-03C041D148B9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grollmus.TiaPortal.Model", "Grollmus.TiaPortal.Model\Grollmus.TiaPortal.Model.csproj", "{B64325DE-E404-4057-B534-C8631F4D3B8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{0D6DC0CE-AC6E-4449-B54D-03C041D148B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D6DC0CE-AC6E-4449-B54D-03C041D148B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D6DC0CE-AC6E-4449-B54D-03C041D148B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B64325DE-E404-4057-B534-C8631F4D3B8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64325DE-E404-4057-B534-C8631F4D3B8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64325DE-E404-4057-B534-C8631F4D3B8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64325DE-E404-4057-B534-C8631F4D3B8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

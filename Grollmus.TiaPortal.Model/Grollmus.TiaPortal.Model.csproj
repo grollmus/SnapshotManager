@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<RootNamespace>Grollmus.TiaPortal.Model</RootNamespace>
+		<AssemblyName>Grollmus.TiaPortal.Model</AssemblyName>
+		<TargetFramework>net48</TargetFramework>
+		<NoWarn>$(NoWarn);SYSLIB0011;SYSLIB0014</NoWarn>
+		<Langversion>Latest</Langversion>
+		<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+		<IsPackable>true</IsPackable>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\SnapshotManager.Core\SnapshotManager.Core.csproj" />
+	</ItemGroup>
+
+</Project>

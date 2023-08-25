@@ -2,10 +2,10 @@
 using Siemens.Engineering;
 using Siemens.Engineering.AddIn.Menu;
 using Siemens.Engineering.SW.Blocks;
-using SnapshotManager.AddIn.TiaPortal;
 using SnapshotManager.Core.Snapshot;
 using SnapshotManager.UI;
 using System.Windows;
+using Grollmus.TiaPortal.Model;
 
 namespace SnapshotManager
 {
