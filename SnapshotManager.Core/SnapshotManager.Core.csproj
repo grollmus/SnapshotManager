@@ -11,4 +11,10 @@
 		<IsPackable>true</IsPackable>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <Reference Include="Siemens.Engineering.AddIn">
+	    <HintPath>..\..\..\..\..\..\Program Files\Siemens\Automation\Portal V18\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
 </Project>
