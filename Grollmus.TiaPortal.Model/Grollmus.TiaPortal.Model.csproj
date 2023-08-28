@@ -12,6 +12,31 @@
 		<IsPackable>true</IsPackable>
 	</PropertyGroup>
 
+	<Target Name="SetEngineeringAddinReferences" BeforeTargets="BeforeResolveReferences">
+		<CreateProperty Condition="'$(TiaPortalLocation)' != ''" Value="$(TiaPortalLocation)">
+			<Output ItemName="TiaPortalLocation" TaskParameter="Value" />
+		</CreateProperty>
+		<Exec Condition="'$(TiaPortalLocation)' == ''" Command="FOR /F &quot;tokens=2*&quot; %%A IN ('reg query &quot;HKLM\Software\Siemens\Automation\_InstalledSW\TIAP18\EditionMain&quot; /v &quot;Path&quot;') DO echo %%~B &gt; &quot;$(ProjectDir)$(OutDir)TiaPortalLocation.log&quot;" IgnoreExitCode="true" />
+		<ReadLinesFromFile Condition="'$(TiaPortalLocation)' == ''" File="$(ProjectDir)$(OutDir)TiaPortalLocation.log" ContinueOnError="true">
+			<Output TaskParameter="Lines" ItemName="TiaPortalLocation" />
+		</ReadLinesFromFile>
+		<Message Text="TiaPortalLocation = @(TiaPortalLocation)" Importance="high"></Message>
+		<ItemGroup>
+			<Reference Condition="'$(TiaPortalLocation)' == ''" Include="Siemens.Engineering.AddIn">
+				<HintPath>@(TiaPortalLocation)\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.dll</HintPath>
+				<Private>False</Private>
+			</Reference>
+			<Reference Condition="'$(TiaPortalLocation)' == ''" Include="Siemens.Engineering.AddIn.Utilities">
+				<HintPath>@(TiaPortalLocation)\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.Utilities.dll</HintPath>
+				<Private>False</Private>
+			</Reference>
+			<Reference Condition="'$(TiaPortalLocation)' == ''" Include="Siemens.Engineering.AddIn.Permissions">
+				<HintPath>@(TiaPortalLocation)\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.Permissions.dll</HintPath>
+				<Private>False</Private>
+			</Reference>
+		</ItemGroup>
+	</Target>
+
 	<ItemGroup Condition="'$(Configuration)' == 'Debug_WithLocalEngineeringDlls'">
 		<Reference Include="Siemens.Engineering">
 			<HintPath>..\libs\Siemens.Engineering.dll</HintPath>
