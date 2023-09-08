@@ -1,4 +1,5 @@
 ﻿using SnapshotManager.UI.Mvvm;
+using System;
 
 namespace SnapshotManager.UI.ViewModels;
 
@@ -35,6 +36,9 @@ internal class SettingsViewModel : ViewModelBase
 
     private void OnOpenFileCommandExecute()
     {
-        Message = "Hallo ich bin da";
+        Random rnd = new Random();
+        int number = rnd.Next();
+
+        Message = $"Hallo ich bin da ({number})";
     }
 }

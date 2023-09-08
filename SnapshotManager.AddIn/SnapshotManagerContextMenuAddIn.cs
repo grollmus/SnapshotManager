@@ -148,7 +148,7 @@ namespace SnapshotManager
 
             var content = factory.GetSettingsUi();
 
-            var window = new Window { DataContext = content };
+            var window = new Window { Content = content };
 
             window.ShowDialog();
         }
