@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Converters/Resources.xaml"/>
+
+        <ResourceDictionary Source="Icons/Resources.xaml"/>
+
+        <ResourceDictionary Source="Styles/Resources.xaml"/>
+
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

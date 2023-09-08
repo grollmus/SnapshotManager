@@ -12,9 +12,9 @@ public partial class App : Application
         base.OnStartup(e);
 
         var uiFactory = new SnapshotManagerUiFactory();
-        var settingsUi = uiFactory.GetSettingsUi();
+        var uiContent = uiFactory.GetFullUi();
 
-        var window = new Shell { DataContext = settingsUi };
+        var window = new Shell { DataContext = uiContent };
         window.Closing += OnWindowClosing;
         window.Show();
     }
