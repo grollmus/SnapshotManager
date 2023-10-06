@@ -15,12 +15,25 @@
 		<UseWindowsForms>true</UseWindowsForms>
 		<UseWPF>true</UseWPF>
 	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' != 'Debug_WithLocalEngineeringDlls'">
+		<SiemensEngineeringPath Condition="'$(SiemensEngineeringPath)' == ''">$([MSBuild]::GetRegistryValueFromView(`HKEY_LOCAL_MACHINE\SOFTWARE\Siemens\Automation\_InstalledSW\TIAP18\EditionMain`, `Path`, `AutoDetect`, RegistryView.Registry64, RegistryView.Registry32))</SiemensEngineeringPath>
+		<TiaPortalLocation Condition="'$(TiaPortalLocation)' == '' AND '$(SiemensEngineeringPath)' != 'AutoDetect'">$([System.IO.Path]::GetFullPath('$(SiemensEngineeringPath)'))</TiaPortalLocation>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'Debug_WithLocalEngineeringDlls'">
+		<TiaPortalLocation>$(SolutionDir)libs</TiaPortalLocation>
+	</PropertyGroup>
+
 	<Target Name="SetEngineeringAddinReferences" BeforeTargets="BeforeResolveReferences">
 		<CreateProperty Condition="'$(TiaPortalLocation)' != ''" Value="$(TiaPortalLocation)">
 			<Output ItemName="TiaPortalLocation" TaskParameter="Value" />
 		</CreateProperty>
-		<Exec Condition="'$(TiaPortalLocation)' == ''" Command="FOR /F &quot;tokens=2*&quot; %%A IN ('reg query &quot;HKLM\Software\Siemens\Automation\_InstalledSW\TIAP18\EditionMain&quot; /v &quot;Path&quot;') DO echo %%~B &gt; &quot;$(ProjectDir)$(OutDir)TiaPortalLocation.log&quot;" IgnoreExitCode="true" />
-		<ReadLinesFromFile Condition="'$(TiaPortalLocation)' == ''" File="$(ProjectDir)$(OutDir)TiaPortalLocation.log" ContinueOnError="true">
+		<Exec Condition="'$(TiaPortalLocation)' == ''"
+		      Command="FOR /F &quot;tokens=2*&quot; %%A IN ('reg query &quot;HKLM\Software\Siemens\Automation\_InstalledSW\TIAP18\EditionMain&quot; /v &quot;Path&quot;') DO echo %%~B &gt; &quot;$(ProjectDir)$(OutDir)TiaPortalLocation.log&quot;"
+		      IgnoreExitCode="true" />
+		<ReadLinesFromFile Condition="'$(TiaPortalLocation)' == ''" File="$(ProjectDir)$(OutDir)TiaPortalLocation.log"
+		                   ContinueOnError="true">
 			<Output TaskParameter="Lines" ItemName="TiaPortalLocation" />
 		</ReadLinesFromFile>
 		<Message Text="TiaPortalLocation = @(TiaPortalLocation)" Importance="high"></Message>
@@ -39,13 +52,12 @@
 			</Reference>
 		</ItemGroup>
 	</Target>
+
 	<Target Name="PublishAddin" BeforeTargets="AfterBuild">
-		<Exec Command="&quot;@(TiaPortalLocation)\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.Publisher.exe&quot; -f &quot;$(ProjectDir)$(OutDir)Config.xml&quot; -v -c -l &quot;$(ProjectDir)$(OutDir)publisher_log.txt&quot;" />
+		<Exec
+			Command="&quot;@(TiaPortalLocation)\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.Publisher.exe&quot; -f &quot;$(ProjectDir)$(OutDir)Config.xml&quot; -v -c -l &quot;$(ProjectDir)$(OutDir)publisher_log.txt&quot;" />
 	</Target>
-	<PropertyGroup>
-		<SiemensEngineeringPath Condition="'$(SiemensEngineeringPath)' == ''">$([MSBuild]::GetRegistryValueFromView(`HKEY_LOCAL_MACHINE\SOFTWARE\Siemens\Automation\_InstalledSW\TIAP18\EditionMain`, `Path`, `AutoDetect`, RegistryView.Registry64, RegistryView.Registry32))</SiemensEngineeringPath>
-		<TiaPortalLocation Condition="'$(TiaPortalLocation)' == '' AND '$(SiemensEngineeringPath)' != 'AutoDetect'">$([System.IO.Path]::GetFullPath('$(SiemensEngineeringPath)'))</TiaPortalLocation>
-	</PropertyGroup>
+
 	<ItemGroup>
 		<Reference Condition="'$(TiaPortalLocation)' != ''" Include="Siemens.Engineering.AddIn">
 			<HintPath>$(TiaPortalLocation)\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.dll</HintPath>
@@ -60,32 +72,17 @@
 			<Private>False</Private>
 		</Reference>
 	</ItemGroup>
+
 	<ItemGroup>
 		<Content Include="Config.xml">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
+
 	<ItemGroup>
 		<ProjectReference Include="..\Grollmus.TiaPortal.Model\Grollmus.TiaPortal.Model.csproj" />
 		<ProjectReference Include="..\SnapshotManager.Core\SnapshotManager.Core.csproj" />
 		<ProjectReference Include="..\SnapshotManager.UI\SnapshotManager.UI.csproj" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(Configuration)' == 'Debug_WithLocalEngineeringDlls'">
-		<Reference Include="Siemens.Engineering.AddIn">
-			<HintPath>..\libs\Siemens.Engineering.AddIn.dll</HintPath>
-		</Reference>
-		<Reference Include="Siemens.Engineering.AddIn.Permissions">
-			<HintPath>..\libs\Siemens.Engineering.AddIn.Permissions.dll</HintPath>
-		</Reference>
-		<Reference Include="Siemens.Engineering">
-			<HintPath>..\libs\Siemens.Engineering.dll</HintPath>
-		</Reference>
-		<Reference Include="Siemens.Engineering.AddIn.Utilities">
-			<HintPath>..\libs\Siemens.Engineering.AddIn.Utilities.dll</HintPath>
-		</Reference>
-		<Reference Include="Siemens.Engineering.Hmi">
-			<HintPath>..\libs\Siemens.Engineering.Hmi.dll</HintPath>
-		</Reference>
-	</ItemGroup>
 </Project>

@@ -18,12 +18,61 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grollmus.TiaPortal.Model", "Grollmus.TiaPortal.Model\Grollmus.TiaPortal.Model.csproj", "{B64325DE-E404-4057-B534-C8631F4D3B8D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{A377B046-A60B-466E-97B7-FC7AAD70E9E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublicAPI", "PublicAPI", "{9A6D650E-5BA9-46E4-8D99-F0A23BAE1B61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V18.AddIn", "V18.AddIn", "{D45E57B0-A1BA-413B-A4BA-A9CB20931EA0}"
 	ProjectSection(SolutionItems) = preProject
-		libs\Siemens.Engineering.AddIn.dll = libs\Siemens.Engineering.AddIn.dll
-		libs\Siemens.Engineering.AddIn.Permissions.dll = libs\Siemens.Engineering.AddIn.Permissions.dll
-		libs\Siemens.Engineering.AddIn.Utilities.dll = libs\Siemens.Engineering.AddIn.Utilities.dll
-		libs\Siemens.Engineering.dll = libs\Siemens.Engineering.dll
-		libs\Siemens.Engineering.Hmi.dll = libs\Siemens.Engineering.Hmi.dll
+		libs\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.DebugStarter.exe = libs\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.DebugStarter.exe
+		libs\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.dll = libs\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.dll
+		libs\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.Permissions.dll = libs\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.Permissions.dll
+		libs\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.Publisher.exe = libs\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.Publisher.exe
+		libs\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.Publisher.xsd = libs\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.Publisher.xsd
+		libs\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.Utilities.dll = libs\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.Utilities.dll
+		libs\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.xml = libs\PublicAPI\V18.AddIn\Siemens.Engineering.AddIn.xml
+		libs\PublicAPI\V18.AddIn\Siemens.Engineering.dll = libs\PublicAPI\V18.AddIn\Siemens.Engineering.dll
+		libs\PublicAPI\V18.AddIn\Siemens.Engineering.Hmi.dll = libs\PublicAPI\V18.AddIn\Siemens.Engineering.Hmi.dll
+		libs\PublicAPI\V18.AddIn\Siemens.Engineering.xml = libs\PublicAPI\V18.AddIn\Siemens.Engineering.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schemas", "Schemas", "{10E97B12-EC6F-426B-B9B1-0ADE98AD53D7}"
+	ProjectSection(SolutionItems) = preProject
+		libs\PublicAPI\V18.AddIn\Schemas\SW.Common_v3.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.Common_v3.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.Interface.Snapshot.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.Interface.Snapshot.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.InterfaceSections_v5.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.InterfaceSections_v5.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.Access_v4.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.Access_v4.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.CompileUnitCommon_v4.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.CompileUnitCommon_v4.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.Graph_v5.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.Graph_v5.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.InstanceSupervisions_v3.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.InstanceSupervisions_v3.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.LADFBD_v4.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.LADFBD_v4.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.SCL_v3.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.SCL_v3.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.STL_v4.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.STL_v4.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.TypeSupervisions_v3.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.PlcBlocks.TypeSupervisions_v3.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.TechnologicalObjects_AdditionalDataAxis_v1.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.TechnologicalObjects_AdditionalDataAxis_v1.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.TechnologicalObjects_AdditionalDataKinematics_v1.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.TechnologicalObjects_AdditionalDataKinematics_v1.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.TechnologicalObjects_AdditionalDataMeasuringInput_v1.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.TechnologicalObjects_AdditionalDataMeasuringInput_v1.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.TechnologicalObjects_AdditionalDataOutputCam_v1.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.TechnologicalObjects_AdditionalDataOutputCam_v1.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.TechnologicalObjects_Parameters_v1.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.TechnologicalObjects_Parameters_v1.xsd
+		libs\PublicAPI\V18.AddIn\Schemas\SW.TechnologicalObjects_ProfileDataCam_v1.xsd = libs\PublicAPI\V18.AddIn\Schemas\SW.TechnologicalObjects_ProfileDataCam_v1.xsd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V18", "V18", "{154EDE4F-95E5-4110-BE87-CD5C58B82D04}"
+	ProjectSection(SolutionItems) = preProject
+		libs\PublicAPI\V18\Siemens.Engineering.dll = libs\PublicAPI\V18\Siemens.Engineering.dll
+		libs\PublicAPI\V18\Siemens.Engineering.xml = libs\PublicAPI\V18\Siemens.Engineering.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bin", "Bin", "{CC327440-E5A5-4AC6-A894-03E3519417DF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublicAPI", "PublicAPI", "{12979892-70FA-47A4-BCB3-851C544D5652}"
+	ProjectSection(SolutionItems) = preProject
+		libs\Bin\PublicAPI\Siemens.Engineering.ClientAdapter.Interfaces.dll = libs\Bin\PublicAPI\Siemens.Engineering.ClientAdapter.Interfaces.dll
+		libs\Bin\PublicAPI\Siemens.Engineering.Contract.dll = libs\Bin\PublicAPI\Siemens.Engineering.Contract.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "V18", "V18", "{655E1E98-9AB8-44B7-A759-3C8DB239C66D}"
+	ProjectSection(SolutionItems) = preProject
+		libs\Bin\PublicAPI\V18\Siemens.Automation.Opns.ObjectModel.Impl.dll = libs\Bin\PublicAPI\V18\Siemens.Automation.Opns.ObjectModel.Impl.dll
 	EndProjectSection
 EndProject
 Global
@@ -75,6 +124,13 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{6FCEF75A-53A0-46E9-89D7-543C111B74F1} = {FD004E10-DF37-43A8-B764-33A5CCB5D9C9}
+		{9A6D650E-5BA9-46E4-8D99-F0A23BAE1B61} = {A377B046-A60B-466E-97B7-FC7AAD70E9E8}
+		{D45E57B0-A1BA-413B-A4BA-A9CB20931EA0} = {9A6D650E-5BA9-46E4-8D99-F0A23BAE1B61}
+		{10E97B12-EC6F-426B-B9B1-0ADE98AD53D7} = {D45E57B0-A1BA-413B-A4BA-A9CB20931EA0}
+		{154EDE4F-95E5-4110-BE87-CD5C58B82D04} = {9A6D650E-5BA9-46E4-8D99-F0A23BAE1B61}
+		{CC327440-E5A5-4AC6-A894-03E3519417DF} = {A377B046-A60B-466E-97B7-FC7AAD70E9E8}
+		{12979892-70FA-47A4-BCB3-851C544D5652} = {CC327440-E5A5-4AC6-A894-03E3519417DF}
+		{655E1E98-9AB8-44B7-A759-3C8DB239C66D} = {12979892-70FA-47A4-BCB3-851C544D5652}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FBB006EE-38ED-4CFB-A9D8-07179DBD2B0F}
