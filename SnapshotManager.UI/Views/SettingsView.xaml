@@ -11,7 +11,7 @@
 
     <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 
-        <Button Content="Drück mich!" Command="{Binding OpenFileCommand}"  />
+        <Button Content="Drück mich!" Command="{Binding OpenFileCommand}" />
 
         <TextBlock Text="{Binding Message}" />
 

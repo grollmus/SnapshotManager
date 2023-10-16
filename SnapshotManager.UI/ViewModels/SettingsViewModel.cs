@@ -3,11 +3,11 @@ using System;
 
 namespace SnapshotManager.UI.ViewModels;
 
-internal class SettingsViewModel : ViewModelBase
+public class SettingsViewModel : ViewModelBase
 {
     private string _message;
 
-    public SettingsViewModel()
+    internal SettingsViewModel()
     {
         CreateCommands();
     }

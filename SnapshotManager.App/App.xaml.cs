@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows;
 using SnapshotManager.UI;
+using SnapshotManager.UI.Views;
 
 namespace SnapshotManager.App;
 
@@ -12,11 +13,11 @@ public partial class App : Application
         base.OnStartup(e);
 
         var uiFactory = new SnapshotManagerUiFactory();
-        var uiContent = uiFactory.GetFullUi();
+        var uiContent = uiFactory.GetSettingsUi();
 
-        var window = new Shell { DataContext = uiContent };
-        window.Closing += OnWindowClosing;
-        window.Show();
+        var shell = new ShellWrapper { DataContext = uiContent };
+        shell.Closing += OnWindowClosing;
+        shell.Show();
     }
 
     private void OnWindowClosing(object sender, CancelEventArgs e)
